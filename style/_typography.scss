@@ -3,7 +3,9 @@
 
 /*
 
-Mixin: letter-spacing-center($spacing, $adjustment: 0)
+Mixin: 	letter-spacing-center($spacing, $adjustment: 0)
+Args:	$spacing: The amount of letter-spacing that you want.
+		$adjustment: The amount you want to add to the padding-left.
 
 Takes a spacing argument for text that needs to be centered.
 
@@ -17,3 +19,10 @@ http://blog.kylemeyer.com/post/19084045453/pixel-perfect-open-tracking-and-align
 	letter-spacing: $spacing;
 	padding-left: $spacing + $adjustment;
 }
+
+
+/*
+
+Mixin:	text-shadow($horzontal, $vertical, $blur, $color, $count)
+
+*/
