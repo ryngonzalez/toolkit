@@ -1,0 +1,47 @@
+/* Sugars: Keep little CSS tricks in here. */
+
+/*
+
+Mixin: 	hide-text(none)
+Args:	None
+
+Takes no arguments, hides text from any element.
+
+Adapted from:
+http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+
+*/
+
+@mixin hide-text {
+	text-indent: 	100%;
+	white-space: 	nowrap;
+	overflow: 		hidden;
+}
+
+/*
+
+Mixin: 	image-replace($url)
+Args:	$height: Height of the image that's replacing the text.
+		$width: Width of the image.
+		$url: The URL of the image.
+		$args: Any arguments for the background property that you want. (Ex. "center top no-repeat")
+
+
+Takes a given url from a block DOM item, replaces any text in that item with a background image.
+
+Adapted from:
+http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+
+*/
+
+@mixin image-replace($height, $width, $url, $args: "") {
+	@include hide-text;
+	height: 	$height;
+	width: 		$width;
+	background: url($url) #{$args};
+}
+
+
+
+
+
