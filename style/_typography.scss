@@ -1,5 +1,19 @@
+/* Typography */
+
+
 /*
 
-Typography
+Mixin: letter-spacing-center($spacing, $adjustment: 0)
+
+Takes a spacing argument for text that needs to be centered.
+
+Adapted from: 
+http://blog.kylemeyer.com/post/19084045453/pixel-perfect-open-tracking-and-alignment
 
 */
+
+@mixin letter-spacing-center($spacing, $adjustment:0) {
+	text-align: center;
+	letter-spacing: $spacing;
+	padding-left: $spacing + $adjustment;
+}
