@@ -1,0 +1,24 @@
+
+// respond-to
+// http://thesassway.com/intermediate/responsive-web-design-part-2#the_future_of_media_queries_in_sass
+
+@mixin respond-to($media) {
+  @if $media == handhelds {
+    @media only screen and (max-width: 480px) { @content; }
+  }
+  @else if $media == medium-screens {
+    @media only screen and (min-width: 480px) { @content; }
+  }
+  @else if $media == sixty {
+    @media only screen and (min-width: 570px) { @content; }
+  }
+  @else if $media == boeing {
+    @media only screen and (min-width: 747px) { @content; }
+  }
+  @else if $media == desktop-screens {
+    @media only screen and (min-width: 980px) { @content; }
+  }
+  @else if $media == wide-screens {
+    @media only screen and (min-width: 1024px) { @content; }
+  }
+}

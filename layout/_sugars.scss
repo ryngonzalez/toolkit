@@ -1,16 +1,16 @@
-/* Sugars: Keep little CSS tricks in here. */
+// Sugars: Keep little CSS tricks in here.
 
-/*
 
-Mixin: 	hide-text(none)
-Args:	None
 
-Takes no arguments, hides text from any element.
+// Mixin: 	hide-text(none)
+// Args:	None
 
-Adapted from:
-http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+// Takes no arguments, hides text from any element.
 
-*/
+// Adapted from:
+// http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+
+
 
 @mixin hide-text {
 	text-indent: 	100%;
@@ -18,30 +18,68 @@ http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacemen
 	overflow: 		hidden;
 }
 
-/*
-
-Mixin: 	image-replace($url)
-Args:	$height: Height of the image that's replacing the text.
-		$width: Width of the image.
-		$url: The URL of the image.
-		$args: Any arguments for the background property that you want. (Ex. "center top no-repeat")
 
 
-Takes a given url from a block DOM item, replaces any text in that item with a background image.
+// Mixin: 	image-replace($url)
+// Args:	$height: Height of the image that's replacing the text.
+// 		$width: Width of the image.
+// 		$url: The URL of the image.
+// 		$args: Any arguments for the background property that you want. (Ex. "center top no-repeat")
 
-Adapted from:
-http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
 
-*/
+// Takes a given url from a block DOM item, replaces any text in that item with a background image.
+
+// Adapted from:
+// http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+
+
 
 @mixin image-replace($height, $width, $url, $args: "") {
 	@include hide-text;
 	height: 	$height;
 	width: 		$width;
+	display: block;
 	background: url($url) #{$args};
 }
 
+@mixin auto-center{
+	margin: 0 auto;
+}
 
 
+// @mixin float($direction: left) {
+// 	display: inline-block;
+// 	vertical-align: top;
+// 	*zoom: 1;
+// 	*display: inline;
+// 	// @include respond-to(ie) { float: $direction; display: block;}
+// }
 
+@mixin float($method: "inline-block", $direction: left) {
+	@if($method == "float") {
+		float: $direction;
+	} @else {
+		display: inline-block;
+		vertical-align: top;
+		*zoom: 1;
+		*display: inline;
+	}
+}
 
+@mixin border-box {
+	* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+}
+
+// @mixin border-image($top, $right, $bottom, $left, $url) {
+// 	border-width: 0px 0px $bottom;
+// 	-moz-border-image: url($url) 0 0 26 repeat;
+// 	-webkit-border-image: url(hr.png) 0 0 26 repeat;
+// 	-o-border-image: url(hr.png) 0 0 26 repeat;
+// 	border-image: url(hr.png) 0 0 26 repeat;
+// }
+
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}

@@ -1,18 +1,15 @@
-/* Typography */
+// Typography 
+
+// Mixin: 	letter-spacing-center($spacing, $adjustment: 0)
+// Args:	$spacing: The amount of letter-spacing that you want.
+// 		$adjustment: The amount you want to add to the padding-left.
+
+// Takes a spacing argument for text that needs to be centered.
+
+// Adapted from: 
+// http://blog.kylemeyer.com/post/19084045453/pixel-perfect-open-tracking-and-alignment
 
 
-/*
-
-Mixin: 	letter-spacing-center($spacing, $adjustment: 0)
-Args:	$spacing: The amount of letter-spacing that you want.
-		$adjustment: The amount you want to add to the padding-left.
-
-Takes a spacing argument for text that needs to be centered.
-
-Adapted from: 
-http://blog.kylemeyer.com/post/19084045453/pixel-perfect-open-tracking-and-alignment
-
-*/
 
 @mixin letter-spacing-center($spacing, $adjustment:0) {
 	text-align: center;
@@ -20,9 +17,15 @@ http://blog.kylemeyer.com/post/19084045453/pixel-perfect-open-tracking-and-align
 	padding-left: $spacing + $adjustment;
 }
 
+// Mixin:	text-shadow($horzontal, $vertical, $blur, $color, $count)
 
-/*
+@mixin headers {
+	h1,h2,h3,h4,h5,h6 {
+		@content;
+	}
+}
 
-Mixin:	text-shadow($horzontal, $vertical, $blur, $color, $count)
-
-*/
+@mixin selection($background, $color) {
+	::selection {background: $background;color: $color;}
+	::-moz-selection {background: $background;color: $color;}
+}
