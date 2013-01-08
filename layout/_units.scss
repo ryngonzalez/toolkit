@@ -1,0 +1,21 @@
+// $base_font_size variable must be set to use this. Converts a 
+// given pixel value(s) to rem.
+
+@function to_rem($px_values) {
+	$baseline_rem: ($base_font_size / 1rem);
+
+    @if type-of($px_values) == 'number' {
+       @return ($px_values / $baseline_rem);
+    } 
+    @else {
+	    @each $value in $px_values {
+	        @if $value == 0 {
+	            $rem_values: append($rem_values, $value);
+	        } @else {
+	            $rem_values: append($rem_values, ($value / $baseline_rem) );
+	        }
+	    }
+	    @return $rem_values;
+    }
+
+}
