@@ -39,7 +39,7 @@
 	height: 	$height;
 	width: 		$width;
 	display: block;
-	background: url($url) #{$args};
+	background: $url #{$args};
 }
 
 @mixin auto-center{
